@@ -1,0 +1,16 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+  <h1>Name: {{ author }}</h1>
+
+  <p><strong>birth:</strong> {{ author.date_of_birth }}</p> 
+  <p><strong>death:</strong> {{ author.date_of_death }}</p> 
+  <h1>Books:</h1>
+      {% for book in books %}
+          <p><strong>book:</strong> {{ book.title }}</p> 
+      {% endfor %}
+  <a href="{% url 'author_update' author.id %}">Update</a>
+  <a href="{% url 'author_delete' author.id %}">Delete</a>
+
+{% endblock %}
+
